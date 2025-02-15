@@ -1,0 +1,16 @@
+[Unit]
+Description=Homebridge Service
+After=network.target
+
+[Service]
+Type=simple
+User=homebridge
+WorkingDirectory=/home/homebridge
+ExecStart=/usr/bin/homebridge
+Restart=always
+RestartSec=3
+StartLimitInterval=0
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target
