@@ -19,10 +19,10 @@ if [[ ! -f $SERVICE_FILE_SOURCE ]]; then
   exit 1
 fi
 
-# 2. Update and install dependencies
+# 2. Update and install necessary packages
 echo "Updating system and installing required packages..."
 sudo apt update && sudo apt upgrade -y
-sudo apt install -y curl software-properties-common git make gcc g++ systemd
+sudo apt install -y curl software-properties-common git make gcc g++ systemd dnsutils net-tools nmap arp-scan iputils-ping
 
 # 3. Install Node.js (if not already installed)
 if ! command -v node &> /dev/null; then
