@@ -21,6 +21,8 @@ fi
 
 # Update and install necessary packages
 echo "Updating system and installing required packages..."
+curl -sSfL https://repo.homebridge.io/KEY.gpg | sudo gpg --dearmor | sudo tee /usr/share/keyrings/homebridge.gpg  > /dev/null
+echo "deb [signed-by=/usr/share/keyrings/homebridge.gpg] https://repo.homebridge.io stable main" | sudo tee /etc/apt/sources.list.d/homebridge.list > /dev/null
 sudo apt update && sudo apt upgrade -y
 sudo apt install -y curl software-properties-common git make gcc g++ systemd dnsutils net-tools nmap arp-scan iputils-ping
 
